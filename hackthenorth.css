@@ -1,1 +1,8 @@
 /* CSS declarations go here */
+	#appearing-circle {
+		border-radius: 75px;
+		width: 150px;
+		height: 150px;
+		background-color: red;
+		visibility: hidden;
+	}
