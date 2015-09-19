@@ -20,7 +20,10 @@
 				$( "#amount" ).val( ui.value );
 			}
 		});
+		
 		$( "#amount" ).val( $( "#slider" ).slider( "value" ) );
+
+		$( "#subdivision" ).selectmenu();
 	});
 	</script>
 </head>
@@ -37,7 +40,17 @@
 	</div>
 	<div class="container">
 		<div id="signature_area">
-
+			<form action="#">
+				<fieldset>
+					<label for="subdivision">Subdivision:</label>
+					<select name="subdivision" id="subdivision">
+						<option selected="selected">Quarter</option>
+						<option>Eighth</option>
+						<option>Triplets</option>
+						<option>Sixteenth</option>
+					</select>
+				</fieldset>
+			</form>
 		</div>
 	</div>
 </body>
