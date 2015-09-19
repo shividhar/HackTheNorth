@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+	<title>Untitled Music Practice App</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="./js/app.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="./js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+	<script>
+	$(function() {
+		$( "#slider" ).slider({
+			range: "max",
+			min: 20,
+			max: 330,
+			value: 90,
+			slide: function( event, ui ) {
+				$( "#amount" ).val( ui.value );
+			}
+		});
+		
+		$( "#amount" ).val( $( "#slider" ).slider( "value" ) );
+
+		$( "#subdivision" ).selectmenu();
+	});
+	</script>
+</head>
+
+<body>
+	<div class="max-width">
+		<div class="container">
+			<div id="bpm_area">
+				<p>
+					<label for="amount">BPM:</label>
+					<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+				</p>
+					<div id="slider"></div>
+			</div>
+		</div>
+		<div class="container">
+			<div id="subdivision_area">
+				<form action="#">
+					<fieldset>
+						<label for="subdivision">Subdivision:</label>
+						<select name="subdivision" id="subdivision">
+							<option selected="selected">Quarter</option>
+							<option>Eighth</option>
+							<option>Triplets</option>
+							<option>Sixteenth</option>
+						</select>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<div class="container">
+			<div id="signatura_area">
+				<form action="#">
+					<label>Signature:</label>
+					<input class="signature" type="number" name="sig-one" min="2" max="19">
+					/
+					<input class="signature" type="number" name="sig-two" min="4" max="16">
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>	
