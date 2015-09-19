@@ -4,13 +4,23 @@
 	<title>Untitled Music Practice App</title>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	<script src="./js/app.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="./js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+	<script>
+	$(function() {
+		$( "#slider" ).slider();
+	});
+	</script>
 </head>
 
 <body>
 	<div class="container">
 		<div id="bpm_area">
-
+			<h2>BPM: </h2>
+			<div id="slider"></div>
 		</div>
 	</div>
 	<div class="container">
