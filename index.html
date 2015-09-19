@@ -11,7 +11,16 @@
 	<script src="./js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 	<script>
 	$(function() {
-		$( "#slider" ).slider();
+		$( "#slider" ).slider({
+			range: "max",
+			min: 20,
+			max: 330,
+			value: 90,
+			slide: function( event, ui ) {
+				$( "#amount" ).val( ui.value );
+			}
+		});
+		$( "#amount" ).val( $( "#slider" ).slider( "value" ) );
 	});
 	</script>
 </head>
@@ -19,8 +28,11 @@
 <body>
 	<div class="container">
 		<div id="bpm_area">
-			<h2>BPM: </h2>
-			<div id="slider"></div>
+			<p>
+				<label for="amount">BPM:</label>
+				<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+			</p>
+				<div id="slider"></div>
 		</div>
 	</div>
 	<div class="container">
