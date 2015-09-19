@@ -1,0 +1,28 @@
+    .max-width {
+      
+    }
+
+    fieldset {
+      border: 0;
+    }
+
+    label {
+      display: block;
+      margin: 30px 0 0 0;
+    }
+
+    select {
+      width: 200px;
+    }
+
+    .overflow {
+      height: 200px;
+    }
+
+    .ui-slider-handle {
+      outline-width: 0;
+    }
+
+    .signature {
+      width: 30px;
+    }
