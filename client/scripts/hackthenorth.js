@@ -143,10 +143,22 @@ var microphone = new Microphone({
           var currentLeft = elt.style.left;
           var leftText = (currentLeft.substring(0, 3));
           var finalLeft = parseInt(leftText);
-          //console.log(finalLeft);
-          if (finalLeft >= 450 && finalLeft <= 540) {
+          console.log(finalLeft);
+          if (finalLeft >= 370 && finalLeft <= 460) {
             ++score;
             document.getElementById("score").innerHTML = "Score : " + score;
+            if (errorCounter > 0) {
+              --errorCounter;
+            }
+          }
+          else {
+            --score;
+            document.getElementById("score").innerHTML = "Score : " + score;
+            ++errorCounter;
+            if (errorCounter >= 5) {
+              alert("Game Over ! Your score is " + score);
+              close();
+            }
           }
           //console.log(absMean);
         }

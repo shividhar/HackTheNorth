@@ -1,10 +1,20 @@
 <head>
   <title>hackthenorth</title>
   <style>
+  		#welcome {
+  			text-align: center;
+  		}
+
+  		#score {
+  			text-align: center;
+  			color: #0080FF;
+  		}
+
 	  .example_path {
 			position:relative;
 			overflow:hidden;
-			width:1000px;
+			left:400px;
+			width:700px;
 			height:150px;
 			border:3px solid #CCFFCC;
 			border-radius: 150px;
@@ -12,7 +22,7 @@
 
 		.example_path #example_block {
 			position:absolute;
-			left:-30px;
+			left:100px;
 			width:30px;
 			height:150px;
 			padding-top:10px;
@@ -24,8 +34,8 @@
 
 		#frame {
 			position: absolute;
-			top: 141px;
-			left: 500px;
+			top: 220px;
+			left: 800px;
 			width: 50px;
 			height: 150px;
 			background-color: black;
@@ -37,35 +47,77 @@
 	<script>
 
 		var score = 0;
+		var errorCounter = 0;
+		var ms = 15;
+		var interval = 1200;
 
     function move() {
       var elem = document.getElementById("example_block");
       var left = 0
-
+      
       function frame() { 
         left++  // update parameters 
         
         elem.style.left = left + '4px' // show frame 
 
         if (left == 100)  // check finish condition
-          clearInterval(id)
+          clearInterval(innerInterval);
       }
-      var id = setInterval(frame, 10) // draw every 10ms
+
+
+      	if (score > 5) {
+      		ms = 12;
+      		clearInterval(innerInterval);
+      	} else if (score > 15) {
+      		ms = 10;
+      		interval = 1000;
+      		clearInterval(innerInterval);
+      		//clearInterval(outerInterval);
+      		//outerInterval = setInterval(move, interval);
+      	} else if (score > 25) {
+      		ms = 7;
+      		interval = 800;
+      		clearInterval(innerInterval);
+      		//clearInterval(outerInterval);
+      		//outerInterval = setInterval(move, interval);
+      	} else if (score > 30) {
+      		ms = 5;
+      		interval = 600;
+      		clearInterval(innerInterval);
+      		//clearInterval(outerInterval);
+      		//outerInterval = setInterval(move, interval);
+      	} else if (score > 35) {
+      		ms = 3;
+      		interval = 400;
+      		clearInterval(innerInterval);
+      		//clearInterval(outerInterval);
+      		//outerInterval = setInterval(move, interval);
+      	} else if (score > 40) {
+      		ms = 1;
+      		interval = 200;
+      		clearInterval(innerInterval);
+      		//clearInterval(outerInterval);
+      		//outerInterval = setInterval(move, interval);
+      	}
+      
+      var innerInterval = setInterval(frame, ms) // draw every 10ms
     }
 
-    setInterval(move, 1500);
+    var outerInterval = setInterval(move, interval);
 
 		
 	</script>
 </head>
 
 <body>
-  <h1>Welcome to Drumroll!</h1>
+	<br><br><br><br>
+  <h1 id="welcome">Welcome to Drumroll!</h1>
 
   {{> hello}}
 </body>
 
 <template name="hello">
+
 	<div class="container">
 		<div id="title">
 			<h1 id="score">Score:</h1>
