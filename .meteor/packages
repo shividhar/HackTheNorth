@@ -7,10 +7,8 @@
 meteor-platform
 autopublish
 insecure
-brentjanderson:buzz
 meteorhacks:npm
 
 
 npm-container
 jquery
-flowkey:microphone
